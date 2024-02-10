@@ -1,0 +1,42 @@
+﻿<!-- Views/Advisors/slots.cshtml -->
+@model List<Slot>
+
+<h1>Admin Panel</h1>
+
+
+
+<h2>Associated slots</h2>
+@if (Model != null && Model != null && Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th class="text-center">SlotID</th>
+                    <th class="text-center">Day</th>
+                    <th class="text-center">Time</th>
+                    <th class="text-center">Location</th>
+                    <th class="text-center">CourseId</th>
+                    <th class="text-center">InstructorId</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var slot in Model)
+                {
+                    <tr>
+                        <td class="text-center">@slot.SlotId</td>
+                        <td class="text-center">@slot.Day</td>
+                        <td class="text-center">@slot.Time</td>
+                        <td class="text-center">@slot.Location</td>
+                        <td class="text-center">@slot.CourseId</td>
+                        <td class="text-center">@slot.InstructorId</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>No associated slots.</p>
+}

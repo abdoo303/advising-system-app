@@ -1,0 +1,32 @@
+﻿@model List<BookQWeb.Models.GraduationPlan> // Replace with your actual namespace
+
+@{
+    ViewData["Title"] = "Graduation Plans with Advisors";
+}
+
+<h1>Graduation Plans with Advisors</h1>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var graduationPlan in Model)
+        {
+            <li>
+                <strong>Plan ID:</strong> @graduationPlan.PlanId <br />
+                <strong>Semester Code:</strong> @graduationPlan.SemesterCode <br />
+                <strong>Expected Graduation Date:</strong> @graduationPlan.ExpectedGradDate <br />
+                <strong>Advisor ID:</strong> @graduationPlan.AdvisorId <br />
+
+                @if (graduationPlan.Advisor != null)
+                {
+                    <strong>Advisor:</strong> @graduationPlan.Advisor.AdvisorName <br />
+                }
+                <hr />
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No graduation plans found.</p>
+}

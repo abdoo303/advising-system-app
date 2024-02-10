@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Admin Part Two | Mahmoud Ayman";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Options</title>
+    <style>
+        /* Styling for buttons */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .btn-container a {
+            display: block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #fff;
+            background-color: #3498db;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-container a:hover {
+                background-color: #2980b9;
+            }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Part Two | Mahmoud Ayman</h1>
+    <div class="btn-container">
+        <!-- Replace the button titles and URLs accordingly -->
+        <a href="/Admins/DeleteCourse" method="get">Delete Course</a>
+        <a href="/Admins/DeleteSlots" method="get">Delete Slots</a>
+        <a href="/Admins/Payments" method="get">Payments</a>
+        <a href="/Admins/AddMakeupExam" method="get">Add Makeup Exam</a>
+        <a href="/Admins/IssueInstallments" method="get">Issue Installments</a>
+        <a href="/Admins/UpdateStudentStatus" method="get">Update Student Status</a>
+        <a href="/Admins/ActiveStudents" method="get">Active Students</a>
+        <a href="/Admins/GraduationPlansWithAdvisors" method="get">Graduation Plans with Advisors</a>
+        <a href="/Admins/StudentsTranscript" method="get">Students Transcript</a>
+        <a href="/Admins/SemestersWithOfferedCourses" method="get">Semesters with Offered Courses</a>
+    </div>
+</body>
+</html>

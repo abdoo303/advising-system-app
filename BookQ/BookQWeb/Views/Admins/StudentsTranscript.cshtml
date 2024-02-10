@@ -1,0 +1,50 @@
+﻿@model List<BookQWeb.Models.StudentsCoursesTranscript> // Replace with your actual namespace
+
+@{
+    ViewData["Title"] = "Students Transcript Details";
+}
+
+<h1>Students Transcript Details</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Exam Type</th>
+                <th>Grade</th>
+                <th>Semester Code</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transcript in Model)
+            {
+                <tr>
+                    <td>@transcript.StudentId</td>
+                    <td>@transcript.FName</td>
+                    <td>@transcript.LName</td>
+                    <td>@transcript.CourseId</td>
+                    <td>@transcript.Name</td>
+                    <td>@transcript.ExamType</td>
+                    <td>@transcript.Grade</td>
+                    <td>@transcript.SemesterCode</td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No transcript details found for students.</p>
+}
+
+@section Scripts {
+    <!-- Any additional scripts needed -->
+}

@@ -1,0 +1,68 @@
+﻿<!-- Views/Advisors/Students.cshtml -->
+@model BookQWeb.Models.Advisor
+
+<h1>Advisor Information</h1>
+
+<p>Advisor ID: @Model.AdvisorId</p>
+<p>Name: @Model.AdvisorName</p>
+<p>Email: @Model.Email</p>
+<p>Office: @Model.Office</p>
+
+<h2>Associated Students</h2>
+
+
+@if (Model.Students.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th class="text-center">Student ID</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">GPA</th>
+                    <th class="text-center">Faculty</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Major</th>
+                    <th class="text-center">Semester</th>
+                    <th class="text-center">Acquired Hours</th>
+                    <th class="text-center">Assigned Hours</th>
+                    <th class="text-center">Graduation Plan</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.Students)
+                {
+                    <tr>
+                        <td class="text-center">@student.StudentId</td>
+                        <td>@student.FName @student.LName</td>
+                        <td class="text-center">@student.Gpa</td>
+                        <td>@student.Faculty</td>
+                        <td>@student.Email</td>
+                        <td>@student.Major</td>
+                        <td class="text-center">@student.Semester</td>
+                        <td class="text-center">@student.AcquiredHours</td>
+                        <td class="text-center">@student.AssignedHours</td>
+                        <td class="text-center">
+                            @if (Model.GraduationPlans.Any(gp => gp.StudentId == student.StudentId))
+                            {
+                                <a asp-controller="Advisors" asp-action="EditGraduationPlan" asp-route-id="@student.StudentId" class="btn btn-success">Edit</a>
+                            }
+                            else
+                            {
+                                <a asp-controller="Advisors" asp-action="CreateGraduationPlan" asp-route-id="@student.StudentId" class="btn btn-primary">Add</a>
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+
+else
+
+{
+    <p>No associated students.</p>
+}

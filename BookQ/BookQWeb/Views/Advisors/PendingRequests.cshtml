@@ -1,0 +1,71 @@
+﻿<!-- Views/Advisors/Students.cshtml -->
+@model BookQWeb.Models.Advisor
+
+<h1>Advisor Information</h1>
+
+<p>Advisor ID: @Model.AdvisorId</p>
+<p>Name: @Model.AdvisorName</p>
+<p>Email: @Model.Email</p>
+<p>Office: @Model.Office</p>
+
+<h2>Associated Requests</h2>
+
+
+@if (Model.Requests.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+
+                    <th class="text-center">Request ID</th>
+                    <th class="text-center">Type</th>
+                    <th class="text-center">Credit Hours</th>
+                    <th class="text-center">Course Id</th>
+                    <th class="text-center">Student Id</th>
+                    <th class="text-center">Status</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var request in Model.Requests)
+                {
+                    @if (request.Status == "Pending")
+                    {
+                        <tr>
+                            <td class="text-center">@request.RequestId</td>
+                            <td>@request.Type</td>
+                            <td class="text-center">@request.CreditHours</td>
+                            <td>@request.CourseId</td>
+                            <td>@request.StudentId</td>
+
+                            <td class="text-center">
+                                @if (request.Status == "Accept")
+                                {
+                                    <td style="color: green">Accepted</td>
+                                }
+                                else if (request.Status == "Reject")
+                                {
+                                    <td style="color: red;">Rejected</td>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Advisors" asp-action="MiddleStage" asp-route-id="@request.RequestId" class="btn btn-primary">Accept/Reject</a>
+                                }
+
+                        </td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+
+else
+
+{
+    <p>No associated Requests.</p>
+}

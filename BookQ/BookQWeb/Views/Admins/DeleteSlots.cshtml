@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Delete Slots";
+}
+
+<h1>Delete Slots</h1>
+
+<form method="post" asp-action="DeleteSlots">
+    <div class="form-group">
+        <label for="currentSemester">Current Semester:</label>
+        <input type="text" class="form-control" id="currentSemester" name="currentSemester" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Delete Slots</button>
+</form>
+
+@section Scripts {
+    <!-- Any additional scripts needed -->
+}

@@ -1,0 +1,42 @@
+﻿<!-- Views/Advisors/Home.cshtml -->
+@model BookQWeb.Models.Student
+@{
+    ViewData["Title"] = "EditGraduationPlan";
+}
+
+<style>
+    .center-container {
+        text-align: center;
+        margin-top: 50px; /* Adjust the margin as needed */
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px; /* Adjust the margin as needed */
+    }
+
+    .btn {
+        width: 200px; /* Adjust the width of the buttons as needed */
+        margin-bottom: 10px; /* Adjust the spacing between buttons as needed */
+    }
+</style>
+
+<div class="center-container">
+    <h1>Student Information</h1>
+
+    <p>Name: (@Model.FName) (@Model.LName)</p>
+    <p>Email: @Model.Email</p>
+    <p>Major: @Model.Major</p>
+
+    <div class="button-container">
+
+        <a asp-controller="Advisors" asp-action="EditDate" asp-route-id="@Model.StudentId" class="btn btn-primary">Edit graduation date</a>
+        <a asp-controller="Advisors" asp-action="AddCourse" asp-route-id="@Model.StudentId" class="btn btn-primary">Add a course to the plan</a>
+        <a asp-controller="Advisors" asp-action="DeleteCourse" asp-route-id="@Model.StudentId" class="btn btn-primary">Delete a course from the plan</a>
+
+      
+    </div>
+</div>
+

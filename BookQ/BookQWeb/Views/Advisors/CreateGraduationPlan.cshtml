@@ -1,0 +1,37 @@
+﻿<!-- Views/Advisors/CreateGraduationPlan.cshtml -->
+@model BookQWeb.Models.GraduationPlan
+
+<h1>Create Graduation Plan</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="SemesterCode">Semester Code:</label>
+        <input type="text" id="SemesterCode" name="SemesterCode" class="form-control" value="@Model.SemesterCode" />
+    </div>
+
+    <div class="form-group">
+        <label for="ExpectedGraduationDate">Expected Graduation Date:</label>
+        <input asp-for="ExpectedGradDate" type="date" class="form- control" value="@Model.ExpectedGradDate" />
+
+       <!-- <input type="date" id="ExpectedGraduationDate" name="ExpectedGraduationDate" class="form-control" value="@Model.ExpectedGradDate?.ToString("yyyy-MM-dd")" />
+    -->
+       </div>
+
+    <div class="form-group">
+        <label for="SemesterCreditHours">Semester Credit Hours:</label>
+        <input type="number" id="SemesterCreditHours" name="SemesterCreditHours" class="form-control" value="@Model.SemesterCreditHours" />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Create Graduation Plan</button>
+</form>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}

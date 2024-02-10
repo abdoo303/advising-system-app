@@ -1,0 +1,39 @@
+﻿@model BookQWeb.Models.Category
+
+@{
+    ViewData["Title"] = "MiddleStage";
+}
+
+<h1>Accept or Reject </h1>
+
+<h4>Requst</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="MiddleStage">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Name" />
+           
+            <div class="form-group">
+                <label asp-for="Code" class="control-label">Current semester code</label>
+                <input asp-for="Code" type="text" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="accept or reject" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+

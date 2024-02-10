@@ -1,0 +1,10 @@
+﻿@model int? // Nullable int to handle validation
+@{
+    ViewData["Title"] = "Delete Course";
+}
+
+<form asp-controller="Admins" asp-action="DeleteCourse" method="post">
+    <label for="courseId">Enter Course ID:</label>
+    <input type="number" id="courseId" name="courseId" min="1" required>
+    <button type="submit">Delete Course</button>
+</form>

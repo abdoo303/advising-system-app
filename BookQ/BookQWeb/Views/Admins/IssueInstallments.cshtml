@@ -1,0 +1,23 @@
+﻿@model int // Pass the model as per your requirement, here it's int (paymentId)
+@{
+    ViewData["Title"] = "Issue Installments";
+}
+
+<form method="post">
+    <label for="paymentId">Enter Payment ID:</label>
+    <input type="number" id="paymentId" name="paymentId" required min="1">
+    <button type="submit">Issue Installments</button>
+</form>
+
+@section Scripts {
+    <script>
+        const paymentIdInput = document.getElementById('paymentId');
+        paymentIdInput.addEventListener('input', function() {
+            if (this.value <= 0) {
+                this.setCustomValidity('Payment ID must be a positive number.');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+}
